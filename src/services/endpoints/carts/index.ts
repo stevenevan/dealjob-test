@@ -6,7 +6,7 @@ const CARTS_QUERY_KEYS = {
   carts: ["carts"],
 };
 
-const CARTS_QUERY_URL = "/carts/";
+const CARTS_QUERY_URL = `/carts/?limit=${1_000_000}`;
 
 export const CARTS_QUERY = {
   getCarts: () => ({

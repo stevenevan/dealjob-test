@@ -4,10 +4,22 @@ import { Button, Center, Loader, Text } from "@mantine/core";
 import Layout from "@screens/hoc/Layout";
 import { DataGrid, numberFilterFn } from "mantine-data-grid";
 import Link from "next/link";
+import { useLocalStorage } from "@mantine/hooks";
+import type {
+  ColumnFiltersState,
+  PaginationState,
+} from "@tanstack/react-table";
 
 const CartsPage = () => {
   const { data, isLoading } = useQuery({
     ...CARTS_QUERY.getCarts(),
+  });
+  const [columnFilters, setColumnFilters] = useLocalStorage<ColumnFiltersState>(
+    { key: "cart-filters", defaultValue: [] }
+  );
+  const [pagination, setPagination] = useLocalStorage<PaginationState>({
+    key: "cart-pagination",
+    defaultValue: { pageIndex: 0, pageSize: 10 },
   });
 
   if (isLoading || !data?.data?.carts) {
@@ -20,23 +32,23 @@ const CartsPage = () => {
       </Layout>
     );
   }
-  // TODO: Use async data
+
   return (
     <Layout>
       <DataGrid
         data={data?.data?.carts}
+        onFilter={setColumnFilters}
+        state={{
+          columnFilters,
+          pagination,
+        }}
+        onPageChange={setPagination}
         striped
         highlightOnHover
         withPagination
         withColumnFilters
-        withSorting
         withColumnResizing
         columns={[
-          {
-            accessorKey: "id",
-            header: "No",
-            size: 48,
-          },
           // TODO: Change userId into username
           {
             accessorKey: "userId",

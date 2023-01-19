@@ -8,10 +8,22 @@ import {
   numberFilterFn,
   stringFilterFn,
 } from "mantine-data-grid";
+import type {
+  ColumnFiltersState,
+  PaginationState,
+} from "@tanstack/react-table";
+import { useLocalStorage } from "@mantine/hooks";
 
 const ProductPage = () => {
   const { data, isLoading } = useQuery({
     ...PRODUCTS_QUERY.getProducts(),
+  });
+  const [columnFilters, setColumnFilters] = useLocalStorage<ColumnFiltersState>(
+    { key: "products-filters", defaultValue: [] }
+  );
+  const [pagination, setPagination] = useLocalStorage<PaginationState>({
+    key: "products-pagination",
+    defaultValue: { pageIndex: 0, pageSize: 10 },
   });
 
   if (isLoading || !data?.data?.products) {
@@ -25,29 +37,25 @@ const ProductPage = () => {
     );
   }
 
-  // TODO: Use async data
-  // TODO: Add indicator for autosaved filter
-  // TODO: Add autosaved filter feature
   return (
     <Layout>
       <DataGrid
         data={data?.data?.products}
+        onFilter={setColumnFilters}
+        state={{
+          columnFilters,
+          pagination,
+        }}
+        onPageChange={setPagination}
         striped
         highlightOnHover
         withPagination
         withColumnFilters
-        withSorting
         withColumnResizing
         columns={[
           {
-            accessorKey: "id",
-            header: "No",
-            size: 48,
-            cell: highlightFilterValue,
-          },
-          {
             accessorKey: "title",
-            header: "Title",
+            header: "Product Name",
             filterFn: stringFilterFn,
             cell: highlightFilterValue,
           },
