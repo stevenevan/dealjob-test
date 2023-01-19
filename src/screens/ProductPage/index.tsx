@@ -1,11 +1,9 @@
 import { useQuery } from "@tanstack/react-query";
 import { PRODUCTS_QUERY } from "@endpoints/products";
-import { Text, Loader, Center, Table, Button } from "@mantine/core";
+import { Text, Loader, Center } from "@mantine/core";
 import Layout from "@screens/hoc/Layout";
 import {
-  booleanFilterFn,
   DataGrid,
-  dateFilterFn,
   highlightFilterValue,
   numberFilterFn,
   stringFilterFn,
