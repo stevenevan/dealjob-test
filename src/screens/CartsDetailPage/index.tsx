@@ -1,15 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
 import { CARTS_QUERY } from "@endpoints/carts";
-import {
-  Card,
-  Center,
-  Flex,
-  Grid,
-  Loader,
-  Space,
-  Stack,
-  Text,
-} from "@mantine/core";
+import { Center, Grid, Loader, Stack, Text } from "@mantine/core";
 import Layout from "@screens/hoc/Layout";
 import { useRouter } from "next/router";
 import {
