@@ -26,6 +26,8 @@ const ProductPage = () => {
   }
 
   // TODO: Use async data
+  // TODO: Add indicator for autosaved filter
+  // TODO: Add autosaved filter feature
   return (
     <Layout>
       <DataGrid
