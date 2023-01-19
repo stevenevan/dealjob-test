@@ -42,7 +42,7 @@ const ProductPage = () => {
           {
             accessorKey: "id",
             header: "No",
-            size: 32,
+            size: 48,
             cell: highlightFilterValue,
           },
           {
