@@ -48,6 +48,7 @@ const ProductPage = () => {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [hash(data?.data?.products)]);
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const primaryAxis: any = useMemo(
     (): AxisOptions<iChartData> => ({
       getValue: (data) => data.label,
@@ -55,6 +56,7 @@ const ProductPage = () => {
     []
   );
 
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const secondaryAxes: any = useMemo(
     (): AxisOptions<iChartData>[] => [
       {

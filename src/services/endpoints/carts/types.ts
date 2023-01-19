@@ -4,6 +4,8 @@ export type iGetCartsResponse = iPaginated & {
   carts: iCart[];
 };
 
+export type iGetCartResponse = iCart;
+
 export type iCart = {
   id: number;
   products: iCartProduct[];

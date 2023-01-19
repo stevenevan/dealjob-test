@@ -3,7 +3,7 @@ import { axiosInstance } from "../../api";
 import type { iPaginated } from "@common/types";
 
 const PRODUCTS_QUERY_KEYS = {
-  products: ["products"],
+  products: () => ["products"],
 };
 
 const PRODUCTS_QUERY_URL = `/products/?limit=${1_000_000}`;
@@ -26,7 +26,7 @@ export type iGetProductsResponse = iPaginated & { products: iProduct[] };
 
 export const PRODUCTS_QUERY = {
   getProducts: () => ({
-    queryKey: PRODUCTS_QUERY_KEYS.products,
+    queryKey: PRODUCTS_QUERY_KEYS.products(),
     queryFn: (): AxiosPromise<iGetProductsResponse> =>
       axiosInstance.get(PRODUCTS_QUERY_URL),
   }),
