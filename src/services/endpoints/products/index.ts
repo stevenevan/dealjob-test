@@ -1,6 +1,5 @@
 import type { AxiosPromise } from "axios";
-import { axiosInstance } from "../api";
-import type { UseQueryOptions } from "@tanstack/react-query";
+import { axiosInstance } from "../../api";
 
 const PRODUCTS_QUERY_KEYS = {
   products: ["products"],
