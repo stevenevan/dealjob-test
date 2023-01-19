@@ -16,6 +16,7 @@ import { User } from "./User";
 import { useDisclosure } from "@mantine/hooks";
 import { IconBrandGithub } from "@tabler/icons";
 import Link from "next/link";
+import Head from "next/head";
 
 type iLayoutProps = {
   children: ReactElement;
@@ -71,6 +72,9 @@ const Layout = ({ children }: iLayoutProps) => {
         </Header>
       }
     >
+      <Head>
+        <title>Dealljob Test</title>
+      </Head>
       {children}
     </AppShell>
   );
