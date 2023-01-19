@@ -16,7 +16,8 @@
     "incremental": true,
     "noUncheckedIndexedAccess": true,
     "paths": {
-      "@screens/*": ["./src/screens/*"]
+      "@screens/*": ["./src/screens/*"],
+      "@endpoints/*": ["./src/services/endpoints/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "**/*.cjs", "**/*.mjs"],

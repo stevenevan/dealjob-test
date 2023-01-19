@@ -1,12 +1,12 @@
 import { useQuery } from "@tanstack/react-query";
-import { PRODUCTS_QUERY } from "@endpoints/products";
+import { CARTS_QUERY } from "@endpoints/carts";
 
-const ProductPage = () => {
+const CartsPage = () => {
   const { data } = useQuery({
-    ...PRODUCTS_QUERY.getProducts(),
+    ...CARTS_QUERY.getCarts(),
   });
 
   return <div>{JSON.stringify(data?.data, null, 2)}</div>;
 };
 
-export default ProductPage;
+export default CartsPage;
