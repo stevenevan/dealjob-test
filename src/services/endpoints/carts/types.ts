@@ -1,11 +1,10 @@
-export interface iGetCartsResponse {
-  carts: iCart[];
-  total: number;
-  skip: number;
-  limit: number;
-}
+import type { iPaginated } from "@common/types";
 
-export interface iCart {
+export type iGetCartsResponse = iPaginated & {
+  carts: iCart[];
+};
+
+export type iCart = {
   id: number;
   products: iCartProduct[];
   total: number;
@@ -13,9 +12,9 @@ export interface iCart {
   userId: number;
   totalProducts: number;
   totalQuantity: number;
-}
+};
 
-export interface iCartProduct {
+export type iCartProduct = {
   id: number;
   title: string;
   price: number;
@@ -23,4 +22,4 @@ export interface iCartProduct {
   total: number;
   discountPercentage: number;
   discountedPrice: number;
-}
+};

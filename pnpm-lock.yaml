@@ -4,6 +4,7 @@ specifiers:
   '@emotion/react': ^11.10.5
   '@emotion/server': ^11.10.0
   '@mantine/core': ^5.10.1
+  '@mantine/dates': ^5.10.1
   '@mantine/hooks': ^5.10.1
   '@mantine/next': ^5.10.1
   '@tabler/icons': ^1.119.0
@@ -15,8 +16,10 @@ specifiers:
   '@typescript-eslint/eslint-plugin': ^5.48.2
   '@typescript-eslint/parser': ^5.48.2
   axios: ^1.2.3
+  dayjs: ^1.11.7
   eslint: ^8.32.0
   eslint-config-next: 13.1.1
+  mantine-data-grid: ^0.1.2
   next: 13.1.1
   react: 18.2.0
   react-dom: 18.2.0
@@ -26,12 +29,15 @@ dependencies:
   '@emotion/react': 11.10.5_3stiutgnnbnfnf3uowm5cip22i
   '@emotion/server': 11.10.0
   '@mantine/core': 5.10.1_pl7c6tg3txk3em5brrn6d2cdkm
+  '@mantine/dates': 5.10.1_bpk7vfbxhpsvcdizyj7sptmxnq
   '@mantine/hooks': 5.10.1_react@18.2.0
   '@mantine/next': 5.10.1_d5xj5jipthoiwqd5a5nbaex2p4
   '@tabler/icons': 1.119.0_biqbaboplfbrettd7655fr4n2y
   '@tanstack/react-query': 4.22.0_biqbaboplfbrettd7655fr4n2y
   '@tanstack/react-query-devtools': 4.22.0_gp275tdwez2a4eujt75dnnp754
   axios: 1.2.3
+  dayjs: 1.11.7
+  mantine-data-grid: 0.1.2_2qbqshrugwylt5wiv55nbzmuj4
   next: 13.1.1_biqbaboplfbrettd7655fr4n2y
   react: 18.2.0
   react-dom: 18.2.0_react@18.2.0
@@ -310,6 +316,21 @@ packages:
     transitivePeerDependencies:
       - '@emotion/react'
       - '@types/react'
+    dev: false
+
+  /@mantine/dates/5.10.1_bpk7vfbxhpsvcdizyj7sptmxnq:
+    resolution: {integrity: sha512-lnZW9C6XCyzl6yj5exkf/vSQ5JY2EoLx9I6k0lW1u4hJQyffOhUxaXDaqNGRCbDQEeZggexi5BYjkxMNK0MgJw==}
+    peerDependencies:
+      '@mantine/core': 5.10.1
+      '@mantine/hooks': 5.10.1
+      dayjs: '>=1.0.0'
+      react: '>=16.8.0'
+    dependencies:
+      '@mantine/core': 5.10.1_pl7c6tg3txk3em5brrn6d2cdkm
+      '@mantine/hooks': 5.10.1_react@18.2.0
+      '@mantine/utils': 5.10.1_react@18.2.0
+      dayjs: 1.11.7
+      react: 18.2.0
     dev: false
 
   /@mantine/hooks/5.10.1_react@18.2.0:
@@ -714,6 +735,36 @@ packages:
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
       use-sync-external-store: 1.2.0_react@18.2.0
+    dev: false
+
+  /@tanstack/react-table/8.7.6_biqbaboplfbrettd7655fr4n2y:
+    resolution: {integrity: sha512-/QijmMFeP7wDLBnr0MQ/5MlbXePbIL/1nOtkxBC9zvmBu4gDKJEDBqipUyM7Wc/iBpSd0IFyqBlvZvTPD9FYDA==}
+    engines: {node: '>=12'}
+    peerDependencies:
+      react: '>=16'
+      react-dom: '>=16'
+    dependencies:
+      '@tanstack/table-core': 8.7.6
+      react: 18.2.0
+      react-dom: 18.2.0_react@18.2.0
+    dev: false
+
+  /@tanstack/react-virtual/3.0.0-beta.26_react@18.2.0:
+    resolution: {integrity: sha512-0W1uwqNtVBs6/F9E1AOHS7vZs3MP7eLeJWOXteWuYQ9mv8s3ddSrhIheIkDY0D27cyNDF/oEnqEujxu9Xf/zLw==}
+    peerDependencies:
+      react: ^16.8.0 || ^17.0.0 || ^18.0.0
+    dependencies:
+      '@tanstack/virtual-core': 3.0.0-beta.26
+      react: 18.2.0
+    dev: false
+
+  /@tanstack/table-core/8.7.6:
+    resolution: {integrity: sha512-sqiNTMzB6cpyL8DFH6/VqW48SwiflLqxQqYpo2wNock7rdVGvlm0BLNI8vZUJbr1+fmmWmHwBvi5OMgZw8n1DA==}
+    engines: {node: '>=12'}
+    dev: false
+
+  /@tanstack/virtual-core/3.0.0-beta.26:
+    resolution: {integrity: sha512-rGsnGlWwUr52+tnvknitbl/O/SbzrB/DEI1r6cgsrMIKYMHvVMWXBl84FW/0eDIea4P8kjj7k5jGCLwiIMPAeQ==}
     dev: false
 
   /@types/json-schema/7.0.11:
@@ -1180,6 +1231,10 @@ packages:
   /damerau-levenshtein/1.0.8:
     resolution: {integrity: sha512-sdQSFB7+llfUcQHUQO3+B8ERRj0Oa4w9POWMI/puGtuf7gFywGmkaLCElnudfTiKZV+NvHqL0ifzdrI8Ro7ESA==}
     dev: true
+
+  /dayjs/1.11.7:
+    resolution: {integrity: sha512-+Yw9U6YO5TQohxLcIkrXBeY73WP3ejHWVvx8XCk3gxvQDCTEmS48ZrSZCKciI7Bhl/uCMyxYtE9UqRILmFphkQ==}
+    dev: false
 
   /debug/3.2.7:
     resolution: {integrity: sha512-CFjzYYAi4ThfiQvizrFQevTTXHtnCqWfe7x1AhgEscTz6ZbLbfoLRLPugTQyBth6f8ZERVUSyWHFD/7Wu4t1XQ==}
@@ -2339,6 +2394,35 @@ packages:
       yallist: 4.0.0
     dev: true
 
+  /mantine-data-grid/0.1.2_2qbqshrugwylt5wiv55nbzmuj4:
+    resolution: {integrity: sha512-KLBbCbtoZD4NDUdweXx8T/3avgeS1UGgxWxAfCB6wTdLg6sxVzsUIK/E6cs2Dkg15gdgFULoMLU2MTczM8VtjQ==}
+    engines: {node: '>=14', pnpm: '>=7'}
+    peerDependencies:
+      '@mantine/core': 5.10.0
+      '@mantine/dates': 5.10.0
+      '@mantine/hooks': 5.10.0
+      dayjs: ^1.11.7
+      react: ^18.0.0
+      react-dom: ^18.0.0
+    peerDependenciesMeta:
+      dayjs:
+        optional: true
+    dependencies:
+      '@emotion/react': 11.10.5_3stiutgnnbnfnf3uowm5cip22i
+      '@mantine/core': 5.10.1_pl7c6tg3txk3em5brrn6d2cdkm
+      '@mantine/dates': 5.10.1_bpk7vfbxhpsvcdizyj7sptmxnq
+      '@mantine/hooks': 5.10.1_react@18.2.0
+      '@tanstack/react-table': 8.7.6_biqbaboplfbrettd7655fr4n2y
+      '@tanstack/react-virtual': 3.0.0-beta.26_react@18.2.0
+      dayjs: 1.11.7
+      react: 18.2.0
+      react-dom: 18.2.0_react@18.2.0
+      tabler-icons-react: 1.56.0_react@18.2.0
+    transitivePeerDependencies:
+      - '@babel/core'
+      - '@types/react'
+    dev: false
+
   /merge2/1.4.1:
     resolution: {integrity: sha512-8q7VEgMJW4J8tcfVPy8g09NcQwZdbwFEqhe/WZkoIzjn/3TGDwtOCYtXGxA3O8tPzpczCCDgv+P2P5y00ZJOOg==}
     engines: {node: '>= 8'}
@@ -2959,6 +3043,14 @@ packages:
       '@pkgr/utils': 2.3.1
       tslib: 2.4.1
     dev: true
+
+  /tabler-icons-react/1.56.0_react@18.2.0:
+    resolution: {integrity: sha512-FOme3w6PJIWDpeXqQ4xjArQqdxzrr9xNy7PSSgWpRzOUQ71RyZ7jt6WThsfyLBz5os78TPJRA8f/0NLjnKcx9A==}
+    peerDependencies:
+      react: '>= 16.8.0'
+    dependencies:
+      react: 18.2.0
+    dev: false
 
   /tapable/2.2.1:
     resolution: {integrity: sha512-GNzQvQTOIP6RyTfE2Qxb8ZVlNmw0n88vp1szwWRimP02mnTsx3Wtn5qRdqY9w2XduFNUgvOwhNnQsjwCp+kqaQ==}

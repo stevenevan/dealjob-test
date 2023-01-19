@@ -17,7 +17,8 @@
     "noUncheckedIndexedAccess": true,
     "paths": {
       "@screens/*": ["./src/screens/*"],
-      "@endpoints/*": ["./src/services/endpoints/*"]
+      "@endpoints/*": ["./src/services/endpoints/*"],
+      "@common/*": ["./src/common/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", "**/*.cjs", "**/*.mjs"],
