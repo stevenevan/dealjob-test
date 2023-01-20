@@ -10,6 +10,7 @@ import {
   stringFilterFn,
 } from "mantine-data-grid";
 import DataText from "./DataText";
+import { UserHoverCard } from "@screens/components";
 
 const CartsDetailPage = () => {
   const router = useRouter();
@@ -34,7 +35,10 @@ const CartsDetailPage = () => {
       <Stack spacing={"lg"}>
         <Grid>
           <DataText title="Cart ID" content={data.data.id.toString()} />
-          <DataText title="User" content={data.data.userId.toString()} />
+          <DataText
+            title="User"
+            content={<UserHoverCard userId={data.data.userId} />}
+          />
           <DataText
             title="Total Products"
             content={data.data.totalProducts.toLocaleString("en-US")}

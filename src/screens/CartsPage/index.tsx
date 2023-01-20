@@ -9,6 +9,7 @@ import type {
   ColumnFiltersState,
   PaginationState,
 } from "@tanstack/react-table";
+import { UserHoverCard } from "@screens/components";
 
 const CartsPage = () => {
   const { data, isLoading } = useQuery({
@@ -49,10 +50,20 @@ const CartsPage = () => {
         withColumnFilters
         withColumnResizing
         columns={[
-          // TODO: Change userId into username
           {
             accessorKey: "userId",
             header: "User",
+            cell: (cell) => <UserHoverCard userId={cell.getValue<number>()} />,
+          },
+          {
+            accessorKey: "totalProducts",
+            header: "Total Products",
+            filterFn: numberFilterFn,
+          },
+          {
+            accessorKey: "totalQuantity",
+            header: "Total Quantity",
+            filterFn: numberFilterFn,
           },
           {
             accessorKey: "total",
@@ -64,21 +75,11 @@ const CartsPage = () => {
           },
           {
             accessorKey: "discountedTotal",
-            header: "Discounted Total",
+            header: "Total After Discount",
             filterFn: numberFilterFn,
             cell: (cell) => (
               <>${cell.getValue<number>().toLocaleString("en-US")}</>
             ),
-          },
-          {
-            accessorKey: "totalProducts",
-            header: "Total Products",
-            filterFn: numberFilterFn,
-          },
-          {
-            accessorKey: "totalQuantity",
-            header: "Total Quantity",
-            filterFn: numberFilterFn,
           },
           {
             accessorKey: "id",

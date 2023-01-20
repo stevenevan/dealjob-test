@@ -1,4 +1,4 @@
-import {  IconChevronRight } from "@tabler/icons";
+import { IconChevronRight } from "@tabler/icons";
 import {
   UnstyledButton,
   Group,
